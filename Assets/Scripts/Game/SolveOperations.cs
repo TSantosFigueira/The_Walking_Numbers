@@ -14,14 +14,15 @@ public class SolveOperations : MonoBehaviour {
 	}
 	
 	void Update () {
-        for (int i = 0; i < operations.Count; i++)
-        {
-            if(operations[i].GetComponent<MathOperationsManager>().answer == answer)
+        if(!PauseManager.isPaused)
+            for (int i = 0; i < operations.Count; i++)
             {
-                operations[i].gameObject.SetActive(false);
-                operations.RemoveAt(i);
-                answer = 0;
+                if(operations[i].GetComponent<MathOperationsManager>().answer == answer)
+                {
+                    operations[i].gameObject.SetActive(false);
+                    operations.RemoveAt(i);
+                    answer = 0;
+                }
             }
-        }
 	}
 }

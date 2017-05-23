@@ -15,6 +15,7 @@ public class EnemyMovement : MonoBehaviour {
 	}
 	
 	void Update () {
-        transform.Translate(player.position * Time.deltaTime * movementSpeed);
+        if(!PauseManager.isPaused)
+            transform.Translate(player.position * Time.deltaTime * movementSpeed);
 	}
 }

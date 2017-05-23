@@ -17,7 +17,7 @@ public class EnemySpawner : MonoBehaviour {
 	void Update () {
         timer -= Time.deltaTime;
 
-        if(timer <= 0)
+        if(timer <= 0 && !PauseManager.isPaused)
         {
             GameObject enemy = ObjectPoolingManager.Instance.GetObject("Zombie_Temp");
             enemy.transform.position = transform.position;
